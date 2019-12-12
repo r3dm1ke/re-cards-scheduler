@@ -10,7 +10,7 @@ def send_notification_request():
     token = os.environ['FIREBASE_FUNCTIONS_TOKEN']
     headers = {'Authorization': token}
     response = requests.post(NOTIFICATION_FUNCTION_URL, headers=headers)
-    print(f'Got response! Status: {response.status_code}, content: {response.content()}')
+    print(f'Got response! Status: {response.status_code}, content: {response.content}')
 
 
 def schedule_notification_request():
@@ -24,4 +24,5 @@ def loop():
 
 
 if __name__ == '__main__':
+    schedule_notification_request()
     loop()
